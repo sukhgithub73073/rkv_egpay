@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.app.rkvmoneyrecharge.models.topup_history_model.Dynamic" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            android:layout_margin="@dimen/_5sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/_5sdp"
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:id="@+id/logo"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:src="@drawable/logo"
+                        android:layout_gravity="center" />
+                    <LinearLayout
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+
+                        <TextView
+                            android:id="@+id/balance"
+                            android:layout_width="match_parent"
+                            android:gravity="center|start"
+                            android:padding="@dimen/_2sdp"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/black"
+                            android:text='@{"Balance : ₹ " + model.openingbalance}'
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="match_parent"
+                            android:gravity="center|start"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/black"
+
+                            android:text="@{model.date}" />
+
+                        <TextView
+                            android:id="@+id/product"
+                            android:layout_width="match_parent"
+                            android:gravity="center|start"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/grey"
+
+                            android:text="@{model.remark1}" />
+
+                        <TextView
+                            android:id="@+id/account"
+                            android:layout_width="match_parent"
+                            android:gravity="center|start"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/grey"
+
+                            android:text="@{model.remark2}"/>
+
+
+                        <TextView
+                            android:id="@+id/description"
+                            android:layout_width="match_parent"
+                            android:gravity="center|start"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/grey"
+                            android:text="@{model.name}" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:orientation="vertical"
+                        android:layout_gravity="center|end|top"
+                        android:gravity="center|end"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <TextView
+                            android:id="@+id/txn_amt"
+                            android:layout_width="match_parent"
+                            android:gravity="center|end"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_10sdp"
+                            android:textColor="@color/black"
+
+                            android:text='@{"Txn Amt : ₹ " + model.openingbalance}'
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/status"
+                            android:layout_width="match_parent"
+                            android:gravity="center|end"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/black"
+
+                            android:text="@{model.date}"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

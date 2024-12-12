@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#033456</color>
+    <color name="purple_200">#033456</color>
+    <color name="purple_500">#033456</color>
+    <color name="purple_700">#033456</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_grey">#9f9f9f</color>
+    <color name="idle_dot">#662D9CDB</color>
+
+    <color name="selected_dot">#2D9CDB</color>
+
+    <color name="colorPrimary">#033456</color>
+    <color name="colorPrimaryDark">#522F92</color>
+    <color name="colorSecendry">#2fbb8c</color>
+    <color name="colorSecendryLight">#522fbb8c</color>
+    <color name="colorAccent">#2fbb8c</color>
+    <color name="secondary_color">#2fbb8c</color>
+
+    <color name="grey">#BDBDBD</color>
+    <color name="icon_color">#033456</color>
+
+    <color name="fb_btn">#4867AA</color>
+    <color name="red">#F14436</color>
+    <color name="light_red">#F8EFEF</color>
+    <color name="google_btn">#F14436</color>
+    <color name="pending_color">#8BC34A</color>
+    <color name="green_text">#295A2B</color>
+    <color name="green">#295A2B</color>
+
+
+    <color name="grey_400">#BDBDBD</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_200">#EEEEEE</color>
+
+</resources>

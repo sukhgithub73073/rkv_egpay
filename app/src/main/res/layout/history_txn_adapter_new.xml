@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.app.rkvmoneyrecharge.models.Datum" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:orientation="vertical"
+            android:background="@drawable/recharge_stroke_bg"
+
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_5sdp"
+                android:padding="@dimen/_5sdp"
+
+                >
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center|start"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_11sdp"
+                        android:textColor="@color/colorPrimary"
+                        android:text='@{"Recharge #" + model.apitransid}'
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center|start"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_11sdp"
+                        android:textColor="@color/colorPrimary"
+                        android:text='@{"Operator : " + model.operatorname}'
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center|start"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:text='@{"Mobile No : " + model.mobile}'
+                         />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center|start"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:text='@{"Time : " + model.date}'
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center|start"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:text='@{"Operator ID : " + model.operatorId}'
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center|start"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:text='@{"Commission : ₹ " + model.commission}'
+                        /> <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center|start"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:text='@{"Charge Amount : ₹ " + model.chargeAmount}'
+                        />
+
+
+
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/logo"-->
+<!--                        android:layout_width="@dimen/_40sdp"-->
+<!--                        android:layout_height="@dimen/_40sdp"-->
+<!--                        android:src="@drawable/logo"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:visibility="gone"-->
+<!--                        />-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="0sp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="2"-->
+<!--                        android:orientation="vertical"-->
+<!--                        >-->
+
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/balance"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:gravity="center|start"-->
+<!--                            android:padding="@dimen/_2sdp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="@dimen/_11sdp"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:text='@{"Balance : ₹ " + model.amount}'-->
+<!--                            android:textStyle="bold" />-->
+
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/date"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:gravity="center|start"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="@dimen/_10sdp"-->
+<!--                            android:textColor="@color/black"-->
+
+<!--                            android:text="@{model.date}" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/product"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:gravity="center|start"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="@dimen/_10sdp"-->
+<!--                            android:textColor="@color/grey"-->
+
+<!--                            android:text="@{model.operatorname}" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/account"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:gravity="center|start"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="@dimen/_10sdp"-->
+<!--                            android:textColor="@color/grey"-->
+
+<!--                            android:text="@{model.rechargeid}"/>-->
+
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/description"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:gravity="center|start"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="@dimen/_10sdp"-->
+<!--                            android:textColor="@color/grey"-->
+<!--                            android:text="@{model.userbusinessname}" />-->
+
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="0sp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1.3"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:layout_gravity="center|end|top"-->
+<!--                        android:gravity="center|end"-->
+<!--                        android:layout_marginStart="@dimen/_5sdp">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/txn_amt"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:gravity="center|end"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="@dimen/_10sdp"-->
+<!--                            android:textColor="@color/black"-->
+
+<!--                            android:text='@{"Txn Amt : ₹ " + model.amount}'-->
+<!--                            android:textStyle="bold" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/status"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:gravity="center|end"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="@dimen/_11sdp"-->
+<!--                            android:textColor="@color/black"-->
+
+<!--                            android:text="@{model.status}"-->
+<!--                            android:textStyle="bold" />-->
+
+
+<!--                    </LinearLayout>-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0sp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_11sdp"
+                        android:textColor="@color/white"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_2sdp"
+                        android:background="@color/red"
+                        android:text='@{model.status.toUpperCase()}'
+                        android:textStyle="bold"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center|start"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_11sdp"
+                        android:textColor="@color/colorPrimary"
+                        android:text='@{"Amount : ₹" + model.amount}'
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        />
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center|start"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:text='@{"Updated Time : " + model.date}'
+                        />
+
+
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/logo"-->
+                    <!--                        android:layout_width="@dimen/_40sdp"-->
+                    <!--                        android:layout_height="@dimen/_40sdp"-->
+                    <!--                        android:src="@drawable/logo"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:visibility="gone"-->
+                    <!--                        />-->
+                    <!--                    <LinearLayout-->
+                    <!--                        android:layout_width="0sp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_weight="2"-->
+                    <!--                        android:orientation="vertical"-->
+                    <!--                        >-->
+
+
+                    <!--                        <TextView-->
+                    <!--                            android:id="@+id/balance"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:gravity="center|start"-->
+                    <!--                            android:padding="@dimen/_2sdp"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:textSize="@dimen/_11sdp"-->
+                    <!--                            android:textColor="@color/black"-->
+                    <!--                            android:text='@{"Balance : ₹ " + model.amount}'-->
+                    <!--                            android:textStyle="bold" />-->
+
+
+                    <!--                        <TextView-->
+                    <!--                            android:id="@+id/date"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:gravity="center|start"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:textSize="@dimen/_10sdp"-->
+                    <!--                            android:textColor="@color/black"-->
+
+                    <!--                            android:text="@{model.date}" />-->
+
+                    <!--                        <TextView-->
+                    <!--                            android:id="@+id/product"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:gravity="center|start"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:textSize="@dimen/_10sdp"-->
+                    <!--                            android:textColor="@color/grey"-->
+
+                    <!--                            android:text="@{model.operatorname}" />-->
+
+                    <!--                        <TextView-->
+                    <!--                            android:id="@+id/account"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:gravity="center|start"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:textSize="@dimen/_10sdp"-->
+                    <!--                            android:textColor="@color/grey"-->
+
+                    <!--                            android:text="@{model.rechargeid}"/>-->
+
+
+                    <!--                        <TextView-->
+                    <!--                            android:id="@+id/description"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:gravity="center|start"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:textSize="@dimen/_10sdp"-->
+                    <!--                            android:textColor="@color/grey"-->
+                    <!--                            android:text="@{model.userbusinessname}" />-->
+
+                    <!--                    </LinearLayout>-->
+                    <!--                    <LinearLayout-->
+                    <!--                        android:layout_width="0sp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_weight="1.3"-->
+                    <!--                        android:orientation="vertical"-->
+                    <!--                        android:layout_gravity="center|end|top"-->
+                    <!--                        android:gravity="center|end"-->
+                    <!--                        android:layout_marginStart="@dimen/_5sdp">-->
+
+                    <!--                        <TextView-->
+                    <!--                            android:id="@+id/txn_amt"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:gravity="center|end"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:textSize="@dimen/_10sdp"-->
+                    <!--                            android:textColor="@color/black"-->
+
+                    <!--                            android:text='@{"Txn Amt : ₹ " + model.amount}'-->
+                    <!--                            android:textStyle="bold" />-->
+
+                    <!--                        <TextView-->
+                    <!--                            android:id="@+id/status"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:gravity="center|end"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:textSize="@dimen/_11sdp"-->
+                    <!--                            android:textColor="@color/black"-->
+
+                    <!--                            android:text="@{model.status}"-->
+                    <!--                            android:textStyle="bold" />-->
+
+
+                    <!--                    </LinearLayout>-->
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/colorPrimary"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_2sdp"
+                >
+
+
+
+                <TextView
+                    android:id="@+id/txt_plan"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_bg"
+                    android:backgroundTint="@color/red"
+                    android:gravity="center"
+                    android:text="Dispute"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/brows_plan"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:background="@drawable/btn_bg"
+                    android:backgroundTint="@color/colorSecendry"
+                    android:gravity="center"
+                    android:text="Share"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    android:layout_gravity="end"
+                    />
+
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

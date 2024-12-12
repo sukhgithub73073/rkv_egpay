@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:elevation="@dimen/_2sdp"
+    android:orientation="horizontal"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:gravity="center"
+
+        >
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="0sp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:gravity="center|start"
+            android:text="sss"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="0sp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="55"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:background="@drawable/edit_bg"
+
+            />
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
