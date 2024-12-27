@@ -5,7 +5,7 @@
     <data>
         <variable
             name="model"
-            type="com.app.rkvmoneyrecharge.models.dth_info_model.Response" />
+            type="com.app.rkvmoneyrecharge.models.dth_info_model.Dynamic" />
 
     </data>
 
@@ -110,7 +110,7 @@
                             android:layout_width="0sp"
                             android:layout_weight="2"
                             android:layout_height="wrap_content"
-                            android:text="@{model.monthlyRecharge.toString()}"
+                            android:text="@{model.monthlyrecharge.toString()}"
 
                             android:layout_gravity="center|end"
                             android:gravity="center|end"
@@ -148,7 +148,7 @@
                             android:layout_width="0sp"
                             android:layout_weight="2"
                             android:layout_height="wrap_content"
-                            android:text="@{model.rechargedueDate.toString()}"
+                            android:text="@{model.nextrechargedate.toString()}"
                             android:layout_gravity="center|end"
                             android:gravity="center|end"
                             android:textSize="@dimen/_12ssp"
@@ -185,7 +185,7 @@
                             android:layout_width="0sp"
                             android:layout_weight="2"
                             android:layout_height="wrap_content"
-                            android:text="@{model.customerStatus.toString()}"
+                            android:text="@{model.status.toString()}"
                             android:layout_gravity="center|end"
                             android:gravity="center|end"
                             android:textSize="@dimen/_12ssp"
@@ -223,7 +223,7 @@
                             android:layout_width="0sp"
                             android:layout_weight="2"
                             android:layout_height="wrap_content"
-                            android:text="@{model.name}"
+                            android:text="@{model.customername}"
                             android:layout_gravity="center|end"
                             android:gravity="center|end"
                             android:textSize="@dimen/_12ssp"
@@ -272,7 +272,7 @@
                             android:layout_width="0sp"
                             android:layout_weight="2"
                             android:layout_height="wrap_content"
-                            android:text='@{"₹ " + model.balance}'
+                            android:text='@{"₹ " + (model.balance.equals("Not found") ? "" : model.balance)}'
                             android:layout_gravity="center|end"
                             android:gravity="center|end"
                             android:textSize="@dimen/_15ssp"
@@ -285,6 +285,36 @@
 
             </androidx.cardview.widget.CardView>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/et_bg"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_5sdp"
+                >
+
+                <EditText
+                    android:id="@+id/et_amount"
+                    android:layout_width="0sp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:hint="Enter Amount"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:text=""
+
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -39,6 +39,7 @@ import com.app.rkvmoneyrecharge.retrofit.RetrofitClient;
 import com.app.rkvmoneyrecharge.utils.AppData;
 import com.app.rkvmoneyrecharge.utils.FLog;
 import com.app.rkvmoneyrecharge.utils.FToast;
+import com.app.rkvmoneyrecharge.utils.GlobalLoader;
 import com.app.rkvmoneyrecharge.utils.Utility;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -56,12 +57,14 @@ public class DTHActivity extends BaseActivity {
     ActivityDthactivityBinding binding;
     OperatorSpinnerAdapter operatorSpinnerAdapter;
     Dynamic selectedOperator;
+    GlobalLoader globalLoader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dthactivity);
         loginModel = Utility.getLoginUser(getApplicationContext());
+        globalLoader = new GlobalLoader(DTHActivity.this);
         setOperatorAdapter();
         manageClicks();
     }
@@ -236,15 +239,22 @@ public class DTHActivity extends BaseActivity {
 
 
     private void dthCustomerInfo() {
+        String optnm = selectedOperator.getText().toString().replace(" ", "");
+        if (optnm.equalsIgnoreCase("VIDEOCOND2H")) {
+            optnm = "VIDEOD2H";
+        } else if (optnm.equalsIgnoreCase("SUNTV")) {
+            optnm = "SunDirect";
+        }
+
         globalLoader.showLoader();
-        String url = "https://rkvplan.in/api/dthCustomerInfo?userid=" + AppData.userid + "&token=" + AppData.tokenRKV + "&optnm=" + selectedOperator.getText().toString().replace(" ", "") + "&number=" + binding.etMobile.getText().toString();
+        String url = "https://rkvplan.in/api/dthCustomerInfo?userid=" + AppData.userid + "&token=" + AppData.tokenRKV + "&optnm=" + optnm + "&number=" + binding.etMobile.getText().toString();
         FLog.w("dthCustomerInfo>>>>>", ">URLL>>>>>>>>>>>>>>>>>>>" + url);
         RetrofitClient.getRetrofitInstance().dthCustomerInfo(url).enqueue(new Callback<DthInfoModel>() {
             @Override
             public void onResponse(Call<DthInfoModel> call, Response<DthInfoModel> response) {
                 globalLoader.dismissLoader();
                 FLog.w("dthCustomerInfo>>>>>", ">>>>>>>>>>>>>>>>>>>>" + new Gson().toJson(response.body()));
-                showDthInfoDailog(response.body().getDynamic().getResponse()) ;
+                showDthInfoDailog(response.body().getDynamic());
 
             }
 
@@ -256,15 +266,13 @@ public class DTHActivity extends BaseActivity {
     }
 
 
-    void showDthInfoDailog(com.app.rkvmoneyrecharge.models.dth_info_model.Response record) {
+    void showDthInfoDailog(com.app.rkvmoneyrecharge.models.dth_info_model.Dynamic record) {
         try {
-
-
-            DthInfoDailogBinding binding = DataBindingUtil.inflate(LayoutInflater.from(getApplicationContext()),
+            DthInfoDailogBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(getApplicationContext()),
                     R.layout.dth_info_dailog, null, false);
             final Dialog dialog = new Dialog(DTHActivity.this);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setContentView(binding.getRoot());
+            dialog.setContentView(dialogBinding.getRoot());
             dialog.setCancelable(false);
             Window window = dialog.getWindow();
             WindowManager.LayoutParams wlp = window.getAttributes();
@@ -273,8 +281,11 @@ public class DTHActivity extends BaseActivity {
             wlp.flags &= ~WindowManager.LayoutParams.FLAG_BLUR_BEHIND;
             window.setAttributes(wlp);
             dialog.show();
-            binding.setModel(record);
-            binding.cancel.setOnClickListener(v -> {
+
+            dialogBinding.etAmount.setText(record.getBalance().equalsIgnoreCase("Not found") ? "" : "" + record.getBalance());
+            dialogBinding.setModel(record);
+            dialogBinding.cancel.setOnClickListener(v -> {
+                binding.etAmount.setText(dialogBinding.etAmount.getText().toString());
                 dialog.dismiss();
             });
         } catch (Exception e) {
