@@ -15,8 +15,9 @@ import com.app.rkvmoneyrecharge.activities.HistoryActivity;
 import com.app.rkvmoneyrecharge.activities.LedgerActivity;
 import com.app.rkvmoneyrecharge.activities.MyTicketsActivity;
 import com.app.rkvmoneyrecharge.activities.PolicyActivity;
-import com.app.rkvmoneyrecharge.activities.UserListActivity;
 import com.app.rkvmoneyrecharge.activities.reports.TopupHistoryActivity;
+import com.app.rkvmoneyrecharge.activities.retailer_list.RetailerListActivity;
+import com.app.rkvmoneyrecharge.activities.retailer_list.RetailerRegisterActivity;
 import com.app.rkvmoneyrecharge.adapters.ProfileReportAdapter;
 import com.app.rkvmoneyrecharge.databinding.FragmentProfileBinding;
 import com.app.rkvmoneyrecharge.models.login_model.LoginModel;
@@ -123,16 +124,12 @@ public class ProfileFragment extends Fragment {
         List<ProfileReportsModel> txn = new ArrayList<>();
         txn.add(new ProfileReportsModel("Api/LedgerReport", "Ledger Report", R.drawable.logo, new Intent(getContext(), LedgerActivity.class)));
         txn.add(new ProfileReportsModel("Api/RechargeReport", "Recharge Report", R.drawable.logo, new Intent(getContext(), HistoryActivity.class)));
-        txn.add(new ProfileReportsModel("Api/RechargeReport", "User List", R.drawable.logo, new Intent(getContext(), UserListActivity.class)));
         txn.add(new ProfileReportsModel("Api/TopUpReport", "Wallet Topup Report", R.drawable.logo, new Intent(getContext(), TopupHistoryActivity.class)));
         txn.add(new ProfileReportsModel("Api/TopUpReport", "Refund Report", R.drawable.logo, new Intent(getContext(), LedgerActivity.class)));
         txn.add(new ProfileReportsModel("Api/TopUpReport", "Commission Report", R.drawable.logo, new Intent(getContext(), LedgerActivity.class)));
         txn.add(new ProfileReportsModel("Api/TopUpReport", "Refferal Report", R.drawable.logo, new Intent(getContext(), LedgerActivity.class)));
         txn.add(new ProfileReportsModel("Api/TopUpReport", "Online Purchase Report", R.drawable.logo, new Intent(getContext(), LedgerActivity.class)));
-
-
         parentList.add(new ProfileModel("Transaction Report", txn));
-
 
         List<ProfileReportsModel> support = new ArrayList<>();
         support.add(new ProfileReportsModel("", "My Tickets", R.drawable.logo, new Intent(getContext(), MyTicketsActivity.class)));

@@ -12,9 +12,9 @@ public class Dynamic {
     @SerializedName("companyname")
     @Expose
     private String companyname;
-    @SerializedName("logintype")
+    @SerializedName("Role")
     @Expose
-    private String logintype;
+    private String Role;
     @SerializedName("name")
     @Expose
     private String name;
@@ -49,12 +49,12 @@ public class Dynamic {
         this.companyname = companyname;
     }
 
-    public String getLogintype() {
-        return logintype;
+    public String getRole() {
+        return Role;
     }
 
-    public void setLogintype(String logintype) {
-        this.logintype = logintype;
+    public void setRole(String role) {
+        Role = role;
     }
 
     public String getName() {

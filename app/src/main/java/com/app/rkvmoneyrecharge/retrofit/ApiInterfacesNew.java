@@ -42,6 +42,12 @@ public interface ApiInterfacesNew {
     @POST("api/SignUpSave")
     Call<CommonResponseModel> registerRequest(@Body Map<String, String> params);
 
+
+    @Headers("Content-Type: application/json")
+    @POST("api/AddReferenceUser")
+    Call<CommonResponseModel> retailerRegisterRequest(@Body Map<String, String> params);
+
+
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @GET()
     Call<GetOperatorModel> getOperatorFromMobile (@Url String url);

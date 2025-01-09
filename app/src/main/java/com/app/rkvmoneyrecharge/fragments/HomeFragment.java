@@ -23,6 +23,7 @@ import com.app.rkvmoneyrecharge.activities.bbps.ElectricityActivity;
 import com.app.rkvmoneyrecharge.activities.bbps.PrepaidActivity;
 import com.app.rkvmoneyrecharge.activities.recharges.DTHActivity;
 import com.app.rkvmoneyrecharge.activities.reports.TopupHistoryActivity;
+import com.app.rkvmoneyrecharge.activities.retailer_list.RetailerListActivity;
 import com.app.rkvmoneyrecharge.adapters.ViewPagerAdapter;
 import com.app.rkvmoneyrecharge.databinding.FragmentHomeBinding;
 import com.app.rkvmoneyrecharge.enc.EncDecRepository;
@@ -89,8 +90,11 @@ public class HomeFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         loginModel = Utility.getLoginUser(getContext());
         binding.txtName.setText("" + loginModel.getDynamic().getName());
-        binding.txtType.setText("" + loginModel.getDynamic().getLogintype());
+        binding.txtType.setText("" + loginModel.getDynamic().getRole());
         binding.txtMobile.setText("" + loginModel.getDynamic().getMobileno());
+
+        binding.addUser.setVisibility(loginModel.getDynamic().getRole().equalsIgnoreCase("Distributor") ?View.VISIBLE : View.GONE);
+
         getBanner();
         getBalance();
         manageClickListeners();
@@ -218,6 +222,10 @@ public class HomeFragment extends Fragment {
         binding.historyPurchase.setOnClickListener(v -> {
             AppData.commingSoonTitle = "Purchase Report";
             startActivity(new Intent(getContext(), CommingSoonActivity.class));
+        });
+
+        binding.addUser.setOnClickListener(v -> {
+            startActivity(new Intent(getContext(), RetailerListActivity.class)) ;
         });
 
 

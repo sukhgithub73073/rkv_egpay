@@ -52,18 +52,6 @@ public class RegisterActivity extends BaseActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register);
         getCompanyInfo();
 
-
-//        binding.etName.setText("Rajesh");
-//        binding.etMobile.setText("8569857485");
-//        binding.etAadhaar.setText("6352 5896 6955");
-//        binding.etPan.setText("JHGFK9876T");
-//        binding.etAddress.setText("mohali");
-//        binding.etEmail.setText("mohali@gmail.com");
-//        binding.etCompanyName.setText("tets dfgdf pvt ltd");
-//        binding.etGst.setText("5454545454632sdfdfd");
-//        binding.etWebsite.setText("https://jsonlint.com/");
-
-
         binding.txtLogin.setOnClickListener(v -> {
             getOnBackPressedDispatcher().onBackPressed();
         });
@@ -89,7 +77,49 @@ public class RegisterActivity extends BaseActivity {
 
             }
         });
+        binding.etAadhaar.addTextChangedListener(new TextWatcher() {
+            private boolean isUpdating = false; // To prevent recursive calls
 
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not used
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Not used
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (isUpdating) return;
+
+                isUpdating = true;
+                String input = s.toString().replaceAll("\\s", ""); // Remove existing spaces
+                StringBuilder formatted = new StringBuilder();
+
+                // Add space after every 4 characters
+                for (int i = 0; i < input.length(); i++) {
+                    if (i > 0 && i % 4 == 0) {
+                        formatted.append(" ");
+                    }
+                    formatted.append(input.charAt(i));
+                }
+
+
+                try {
+                    binding.etAadhaar.removeTextChangedListener(this);
+                    binding.etAadhaar.setText(formatted.toString());
+                    if (binding.etAadhaar.getText().toString().length() != 14) {
+                        binding.etAadhaar.setSelection(formatted.length()); // Move cursor to the end
+                    }
+                    binding.etAadhaar.addTextChangedListener(this);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                isUpdating = false;
+            }
+        });
     }
 
     private void getCompanyInfo() {

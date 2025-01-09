@@ -34,6 +34,13 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
+
+//        //if (BuildConfig.DEBUG) {
+//        if (true) {
+//            binding.etMobile.setText("9521821501");
+//            binding.etPassword.setText("F073F261");
+//        }
+
         binding.txtForgot.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), ForgotActivity.class));
         });
@@ -46,7 +53,7 @@ public class LoginActivity extends BaseActivity {
             hitLoginApi();
         });
     }
-//ccc
+
     private void hitLoginApi() {
         globalLoader.showLoader();
 

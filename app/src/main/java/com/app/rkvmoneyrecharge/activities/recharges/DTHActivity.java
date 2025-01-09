@@ -39,7 +39,6 @@ import com.app.rkvmoneyrecharge.retrofit.RetrofitClient;
 import com.app.rkvmoneyrecharge.utils.AppData;
 import com.app.rkvmoneyrecharge.utils.FLog;
 import com.app.rkvmoneyrecharge.utils.FToast;
-import com.app.rkvmoneyrecharge.utils.GlobalLoader;
 import com.app.rkvmoneyrecharge.utils.Utility;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -57,14 +56,12 @@ public class DTHActivity extends BaseActivity {
     ActivityDthactivityBinding binding;
     OperatorSpinnerAdapter operatorSpinnerAdapter;
     Dynamic selectedOperator;
-    GlobalLoader globalLoader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dthactivity);
         loginModel = Utility.getLoginUser(getApplicationContext());
-        globalLoader = new GlobalLoader(DTHActivity.this);
         setOperatorAdapter();
         manageClicks();
     }
@@ -268,6 +265,8 @@ public class DTHActivity extends BaseActivity {
 
     void showDthInfoDailog(com.app.rkvmoneyrecharge.models.dth_info_model.Dynamic record) {
         try {
+
+
             DthInfoDailogBinding dialogBinding = DataBindingUtil.inflate(LayoutInflater.from(getApplicationContext()),
                     R.layout.dth_info_dailog, null, false);
             final Dialog dialog = new Dialog(DTHActivity.this);
@@ -281,7 +280,7 @@ public class DTHActivity extends BaseActivity {
             wlp.flags &= ~WindowManager.LayoutParams.FLAG_BLUR_BEHIND;
             window.setAttributes(wlp);
             dialog.show();
-
+//ss
             dialogBinding.etAmount.setText(record.getBalance().equalsIgnoreCase("Not found") ? "" : "" + record.getBalance());
             dialogBinding.setModel(record);
             dialogBinding.cancel.setOnClickListener(v -> {
